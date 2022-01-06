@@ -10,5 +10,6 @@ body {
 }
 
 .checked.todo-item {
+  font-style: italic;
   text-decoration: line-through;
 }
