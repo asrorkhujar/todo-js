@@ -13,3 +13,7 @@ body {
   font-style: italic;
   text-decoration: line-through;
 }
+
+.js-check {
+  cursor: pointer;
+}

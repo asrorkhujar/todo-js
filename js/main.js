@@ -24,7 +24,7 @@ elForm.addEventListener('submit', (evt) => {
 
   for (let item of toDos) {
     let newItemToDo = document.createElement('li');
-    newItemToDo.setAttribute('class', 'todo-item bg-info text-white p-2 rounded mt-2 d-flex');
+    newItemToDo.setAttribute('class', 'todo-item bg-info text-white p-2 rounded mt-2 d-flex shadow-sm');
 
     let newItemToDoInfo = document.createElement('span');
     newItemToDoInfo.setAttribute('class', 'ms-3 fst-italic');
