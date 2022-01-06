@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS-11 | To-Do</title>
+  <link rel="stylesheet" href="css/bootstrap5.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body class="site-body">
+
+  <div class="container-sm d-flex flex-column align-items-center">
+    <h2 class="text-center text-white fw-bold display-3 my-4">To-Do List</h2>
+    <form class="js-form-todo form p-5 rounded-3 shadow-sm w-75" id="formToDo" action="https://echo.htmlacademy.ru"
+      method="POST">
+      <div class="row">
+        <div class="col-md-6">
+          <input class="form-control js-form-amount" type="text" placeholder="Todo:" id="inputAmountToDo" required>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+          <input class="form-control js-form-amount-author" type="text" placeholder="Author:" id="inputAmountAuthor"
+            required>
+        </div>
+
+        <div class="col-md-2 mt-4 mt-md-0">
+          <button class="btn btn-outline-warning js-form-btn w-100 text-uppercase" type="submit"
+            id="formSubmitToDo">Add</button>
+        </div>
+
+        <div class="col-12">
+          <ul class="todo-list list-unstyled mt-4">
+            <li class="todo-item bg-info text-white p-2 rounded mt-2 d-flex">
+              <input type="checkbox" class="js-check form-check-input me-2" id="checkDone">
+              Lorem ipsum dolor sit amet
+              consectetur
+              adipisicing elit. Unde, quasi. <span class="ms-3 fst-italic">(Asror)</span>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+  <script src="js/bootstrap5.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

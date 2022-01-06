@@ -1,0 +1,14 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
+.site-body {
+  background-color: #283747;
+}
+
+.form {
+  background-color: #34495e;
+}
+
+.checked.todo-item {
+  text-decoration: line-through;
+}
