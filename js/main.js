@@ -50,10 +50,10 @@ const renderTodos = (arr, element) => {
     newItemToDo.setAttribute('class', 'todo-item bg-info text-white p-2 rounded mt-2 d-flex align-items-center shadow-sm');
 
     let newItemToDoInfoWrapper = document.createElement('div');
-    newItemToDoInfoWrapper.setAttribute('class', 'd-flex');
+    newItemToDoInfoWrapper.setAttribute('class', 'd-flex flex-wrap');
 
     let newCheckbox = document.createElement('input');
-    newCheckbox.setAttribute('class','checkbox-btn form-check-input ms-1 me-3');
+    newCheckbox.setAttribute('class','checkbox-btn form-check-input ms-1 me-md-3');
     newCheckbox.type = 'checkbox';
 
     let newToDo = document.createElement('p');
@@ -66,10 +66,10 @@ const renderTodos = (arr, element) => {
 
     //TEXT CONTENT
     newToDo.textContent = todo.name;
-    newToDoAuthor.textContent = `➡ (${todo.author})`;
+    newToDoAuthor.textContent = `(${todo.author})`;
     newDeleteBtn.textContent = 'Delete';
 
-    newDeleteBtn.setAttribute('class','delete-btn btn btn-danger ms-auto');
+    newDeleteBtn.setAttribute('class','delete-btn btn btn-sm btn-danger ms-auto');
     newDeleteBtn.type = 'button';
 
 
