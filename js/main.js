@@ -66,7 +66,7 @@ const renderTodos = (arr, element) => {
 
     //TEXT CONTENT
     newToDo.textContent = todo.name;
-    newToDoAuthor.textContent = `(${todo.author})`;
+    newToDoAuthor.textContent = `➡ (${todo.author})`;
     newDeleteBtn.textContent = 'Delete';
 
     newDeleteBtn.setAttribute('class','delete-btn btn btn-danger ms-auto');
@@ -81,6 +81,7 @@ const renderTodos = (arr, element) => {
     if (todo.isCompleted) {
       newCheckbox.checked = true;
       newItemToDoInfoWrapper.style.textDecoration = 'line-through';
+      newItemToDoInfoWrapper.style.opacity = '0.7';
     }
 
     element.appendChild(newItemToDo);
