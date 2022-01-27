@@ -16,27 +16,9 @@ const elCompletedBtn = document.querySelector('.btn-completed');
 const elUncompletedBtn = document.querySelector('.btn-uncompleted');
 
 //2. Har bir to-do ni saqlash uchun yangi bo'sh array ochildi
-const toDos = [];
+const localTodos = JSON.parse(window.localStorage.getItem('toDos'));
 
-//12. Event delegation
-elTodoList.addEventListener('click', (evt) => {
-  if (evt.target.matches('.delete-btn')) {
-    let todoBtnId = evt.target.dataset.todoId * 1;
-    const foundTodoIndex = toDos.findIndex((todo) => todo.id === todoBtnId);
-    toDos.splice(foundTodoIndex, 1);
-    elTodoList.innerHTML = '';
-
-    renderTodos(toDos, elTodoList);
-
-  } else if (evt.target.matches('.checkbox-btn')) {
-    let todoCheckedId = evt.target.dataset.checkId * 1;
-    const foundCheckbox = toDos.find((todo) => todo.id === todoCheckedId);
-    foundCheckbox.isCompleted = !foundCheckbox.isCompleted;
-    elTodoList.innerHTML = '';
-
-    renderTodos(toDos, elTodoList);
-  }
-});
+const toDos = localTodos || [];
 
 //8. To-do larni render qilish dynamic funksiya tuzib olindi
 const renderTodos = (arr, element) => {
@@ -93,6 +75,32 @@ const renderTodos = (arr, element) => {
   });
 };
 
+renderTodos(toDos, elTodoList);
+
+//10. Event delegation
+elTodoList.addEventListener('click', (evt) => {
+  if (evt.target.matches('.delete-btn')) {
+    let todoBtnId = evt.target.dataset.todoId * 1;
+    const foundTodoIndex = toDos.findIndex((todo) => todo.id === todoBtnId);
+    toDos.splice(foundTodoIndex, 1);
+    elTodoList.innerHTML = '';
+
+    window.localStorage.setItem('toDos', JSON.stringify(toDos));
+
+    renderTodos(toDos, elTodoList);
+
+  } else if (evt.target.matches('.checkbox-btn')) {
+    let todoCheckedId = evt.target.dataset.checkId * 1;
+    const foundCheckbox = toDos.find((todo) => todo.id === todoCheckedId);
+    foundCheckbox.isCompleted = !foundCheckbox.isCompleted;
+    elTodoList.innerHTML = '';
+
+    window.localStorage.setItem('toDos', JSON.stringify(toDos));
+
+    renderTodos(toDos, elTodoList);
+  }
+});
+
 //3. Formani submitiga quloq solindi
 elForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
@@ -112,6 +120,9 @@ elForm.addEventListener('submit', (evt) => {
 
   //7. todo objectini har safar submit bo'lganda todos arrayiga push qilsin
   toDos.push(todo);
+
+  window.localStorage.setItem('toDos', JSON.stringify(toDos));
+
   elInputToDo.value = '';
   elInputToDoAuthor.value = '';
 
